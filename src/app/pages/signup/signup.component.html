@@ -1,8 +1,10 @@
 <div class="bootstrap-wrapper">
-    <div class="container margin-top">
+    <div class="container">
       <div class="row">
-        <div class="col-md-6 offset-md-3" style="background-color:white; border: 1px solid black;">
-          <div class="container text-center" style="margin-top: 8px;">
+        <div class="col-md-6 offset-md-3">
+        <!-- for material card -start-->
+        <mat-card class="common-backgound"> 
+          <div class="container text-center mt20">
             <img src="../../../assets/singUp.jpg" width="18%" alt="singUp.jpg" />
           </div>
   
@@ -56,13 +58,15 @@
             
             <!-- Button --> 
             <div class="container text-center">
-              <button type="submit" [disabled]="regForm.invalid" mat-raised-button color="primary"> Register </button>
-              <button type="reset" class="margin-left" mat-raised-button> Reset </button>
+               <!-- [disabled]="regForm.invalid" it's apply on submit button  --> 
+              <button type="submit" mat-raised-button color="primary"> Register </button>
+              <button type="reset" class="ml10" mat-raised-button> Reset </button>
             </div>
             <p></p>
           
           </form>
-  
+        </mat-card>
+        <!-- for material card -end-->
         </div>
       </div>
     </div>
