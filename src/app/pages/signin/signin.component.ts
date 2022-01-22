@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/login.service';
 import { UserService } from './../../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
@@ -9,12 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(
-    private userService: UserService,
-    private _snackBar: MatSnackBar
-  ) {
-
-  }
+  constructor(private _snackBar: MatSnackBar,private loginService:LoginService) {}
 
   ngOnInit(): void {
   }
@@ -30,6 +26,36 @@ export class SigninComponent implements OnInit {
       this._snackBar.open('Password is required !!', 'Ok', { duration: 3000 });
       return;
     }
- 
+   
+    this.loginService.generateToken(data).subscribe(
+      (data:any) => { 
+        //success case
+        console.warn('success is' + data.token);
+
+        //login user
+        this.loginService.loginUser(data.token);
+        this.loginService.getCurrentUser().subscribe(
+          (user:any)=>{ 
+            this.loginService.setUser(user);
+            console.warn("current login user is :"+user.userName);
+            
+            
+
+            //redirect .... ADMIN : admin dashboard
+            //redirect .... User :  user dashboard
+
+           }
+        );
+
+
+      },
+      (error) => { 
+        //error case
+        console.warn(error);
+        
+       
+      }
+    );
+
   }
 }
