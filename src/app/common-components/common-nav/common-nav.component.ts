@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-common-nav',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommonNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(public loginService:LoginService) { }
 
   ngOnInit(): void {
+  }
+  public logout(){
+    this.loginService.logout();
+    window.location.reload();
   }
 
 }

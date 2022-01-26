@@ -1,17 +1,31 @@
 <p>
     <mat-toolbar color="primary">
-      <a routerLink="" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <a 
+       routerLink="" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu_book</mat-icon>
       </a>
       <span>Exam Portal</span>
       <span class="example-spacer"></span>
-      <a routerLink="signIn" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <a *ngIf="!loginService.isLoggedIn()"
+       routerLink="signIn" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
        <!-- <mat-icon>login</mat-icon> -->
        Login
       </a>
-      <a routerLink="signUp" mat-icon-button class="example-icon ml20 mr20" aria-label="Example icon-button with share icon">
+      <a *ngIf="!loginService.isLoggedIn()"
+      routerLink="signUp" mat-icon-button class="example-icon ml20 mr20" aria-label="Example icon-button with share icon">
         <!--  <mat-icon>app_registration</mat-icon> -->
         Register
+      </a>
+      <a *ngIf="loginService.isLoggedIn()"
+       routerLink="signIn" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+       <!-- <mat-icon>login</mat-icon> -->
+        {{ loginService.getUser().userName}}
+      </a>
+      <a (click)="logout()"
+       *ngIf="loginService.isLoggedIn()"
+       mat-icon-button class="example-icon ml20 mr20" aria-label="Example icon-button with share icon">
+        <!--  <mat-icon>app_registration</mat-icon> -->
+        Logout
       </a>
     </mat-toolbar>
 </p>

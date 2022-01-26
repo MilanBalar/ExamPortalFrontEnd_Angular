@@ -1,9 +1,13 @@
+import { AdminGuard } from './services/admin.guard';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserGuard } from './services/user.guard';
 
 const routes: Routes = [
 
@@ -11,8 +15,16 @@ const routes: Routes = [
 {path:'signUp',component:SignupComponent},
 {path:'signIn',component:SigninComponent},  
 {path:'home',component:HomeComponent}, 
-
-
+{
+   path:'admin-dashboard',
+   component:AdminDashboardComponent,
+   canActivate:[AdminGuard] //so AdminGuard protect the 'admin-dashboard' routes 
+},
+{ 
+  path:'user-dashboard',
+  component:UserDashboardComponent,
+  canActivate:[UserGuard] //so UserGuard protect the 'user-dashboard' routes 
+},
 
 ];
 
