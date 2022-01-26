@@ -43,9 +43,11 @@ export class SigninComponent implements OnInit {
             //redirect .... ADMIN : admin dashboard
             //redirect .... User :  user dashboard
             if(this.loginService.getUserRole()=="ADMIN"){
-               this.router.navigate(['admin-dashboard']);
+               //this.router.navigate(['admin-dashboard']);
+               window.location.href='/admin-dashboard';
             }else if(this.loginService.getUserRole()=="USER"){
-              this.router.navigate(['user-dashboard']);
+              //this.router.navigate(['user-dashboard']);
+              window.location.href='/user-dashboard';
             }else{
               this.loginService.logout();
             }

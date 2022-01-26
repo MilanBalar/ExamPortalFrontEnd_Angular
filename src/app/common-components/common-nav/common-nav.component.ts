@@ -8,12 +8,19 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class CommonNavComponent implements OnInit {
 
+  isLoggedIn=false;
+  user=null;
+
   constructor(public loginService:LoginService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn=this.loginService.isLoggedIn();
+    this.user=this.loginService.getUser();
   }
   public logout(){
     this.loginService.logout();
+    this.isLoggedIn=false;
+    this.user=null;
     window.location.reload();
   }
 
