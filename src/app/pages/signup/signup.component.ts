@@ -51,12 +51,12 @@ export class SignupComponent implements OnInit {
       },
       (error) => {
         //error case
-        console.warn(error);
+        console.error(error);
         //this._snackBar.open("Something went wrong !!","Ok", { duration: 3000 });
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'Something went wrong!',
+          text: 'Something went wrong!! , Error cause : ' +error.error,
         });
       }
     );
