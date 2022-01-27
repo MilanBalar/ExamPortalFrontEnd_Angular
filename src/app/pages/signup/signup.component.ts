@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
   register(data: any) {
     console.warn(data);
-    // Validation 
+    // Validation
     if (data.userName == '' || data.userName == null) {
       this._snackBar.open('User name is required !!', 'Ok', { duration: 3000 });
       return;
@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
       this._snackBar.open('Email is required !!', 'Ok', { duration: 3000 });
       return;
     }
-    if (data.phoneNo == '' || data.phoneNo == null) {
+    if (data.phone == '' || data.phone == null) {
       this._snackBar.open('Phone No is required !!', 'Ok', { duration: 3000 });
       return;
     }

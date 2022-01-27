@@ -52,8 +52,8 @@
             <!-- Phone No. filed--> 
             <mat-form-field appearance="outline" class="full-area" >
               <mat-label>Phone No.</mat-label>
-              <input type="number" required  minlength="8" maxlength="12" #phoneNo="ngModel" matInput placeholder="Enter here" name="phoneNo" ngModel>
-              <span *ngIf="phoneNo.invalid && phoneNo.touched" class="error">Invalid Phone No. </span>
+              <input pattern="^((\\+91-?)|0)?[0-9]{10}$" type="number" required  minlength="8" maxlength="12" #phone="ngModel" matInput placeholder="Enter here" name="phone" ngModel>
+              <span *ngIf="phone.invalid && phone.touched" class="error">Invalid Phone No. </span>
             </mat-form-field>
             
             <!-- Button --> 
