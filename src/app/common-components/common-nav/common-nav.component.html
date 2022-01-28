@@ -17,7 +17,7 @@
         Register
       </a>
       <a *ngIf="isLoggedIn && user != null"
-       routerLink="signIn" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+       routerLink="/admin-dashboard/profile" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
        <!-- <mat-icon>login</mat-icon> -->
         {{ loginService.getUser().userName}}
       </a>

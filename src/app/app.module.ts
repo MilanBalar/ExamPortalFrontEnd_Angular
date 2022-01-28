@@ -19,6 +19,10 @@ import { CommonNavComponent } from './common-components/common-nav/common-nav.co
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { ViewProfileComponent } from './pages/view-profile/view-profile.component';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import {MatListModule} from '@angular/material/list';//for sidebar inside shown the list
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     HomeComponent,
     CommonNavComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ViewProfileComponent,
+    SidebarComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +50,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
+    MatListModule,
     
   ],
   providers: [authInterceptorProviders], //this authInterceptorProviders class in we defined the Interceptor. for adding every request with token.

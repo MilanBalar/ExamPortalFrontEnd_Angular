@@ -1,0 +1,51 @@
+<mat-card *ngIf="user">
+  
+  <mat-card-content>
+    
+    <div class="bootstrap-wrapper">
+        <div class="container">
+ 
+            <div class="container text-center mt20">
+                <h1><u>Your Profile Details</u></h1>
+                <img src="../../../assets/view-profile.png" class="profile-image" alt="view-profile" />
+                <h1 class="mt20"> {{user.userName}} {{user.lastName}} </h1>
+            </div>
+          <div class="row mt10">
+              <div class="col-md-10 offset-md-1">
+                 <!-- table start -->                 
+                   <table class="table text-center" border="1">
+                        <tr>
+                            <td> User id : </td>
+                            <td> Exam{{user.userId}}  </td>
+                        </tr>
+                       <tr>
+                           <td> User name : </td>
+                           <td> {{user.userName}} </td>
+                       </tr>
+                       <tr>
+                          <td> Phone No : </td>
+                          <td> {{user.phone}} </td>
+                       </tr>
+                       <tr>
+                          <td> Role : </td>
+                          <td> {{user.authorities[0].authority}} </td>
+                       </tr>
+                       <tr>
+                          <td> Stustus : </td>
+                          <td> {{user.enabled ? 'ACTIVE' : 'NOT ACTIVE'}} </td>
+                       </tr>
+                   </table> 
+                 <!-- table end --> 
+              </div>
+          </div>
+        </div>
+    </div>    
+
+  </mat-card-content> 
+  <!-- card footer-->
+  <mat-card-actions class="text-center">
+    <button type="submit" mat-raised-button color="primary">Update</button>
+  </mat-card-actions>
+
+</mat-card>
+
