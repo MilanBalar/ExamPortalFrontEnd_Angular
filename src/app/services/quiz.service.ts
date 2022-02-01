@@ -7,10 +7,16 @@ import baseURL from './helper';
 })
 export class QuizService {
 
-  constructor(private http:HttpClient) { }
+constructor(private http:HttpClient) { }
 
+//get all quiz
  public getAllQuiz(){
   return this.http.get(`${baseURL}/quiz/`); 
+ }
+
+ //Add category
+ public addQuiz(data:any){
+  return this.http.post(`${baseURL}/quiz/`,data); 
  }
 
 }
