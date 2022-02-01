@@ -1,0 +1,46 @@
+<!-- for material card -start-->
+<mat-card class="common-backgound"> 
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+        
+          <div class="container text-center mt20">
+            <img src="../../../assets/Add_Category.png" width="10%" alt="Add category icon" />
+          </div>
+  
+        <h1 class="text-center"><u>Add Category Here !!</u></h1>
+          
+          <form #logForm="ngForm" (ngSubmit)="addCategory(logForm.value)">
+  
+            <!-- Titale filed--> 
+            <mat-form-field appearance="outline" class="full-area mt20">
+              <mat-label>Titale</mat-label>
+              <input required matInput placeholder="Enter here" minlength="3" name="title" ngModel />
+            </mat-form-field> 
+            
+
+
+            <!-- discription filed--> 
+            <mat-form-field appearance="outline" class="full-area" >
+              <mat-label>discription</mat-label>
+              <textarea required  rows="10" matInput placeholder="Enter here" name="discription" ngModel></textarea>
+            </mat-form-field> 
+            
+           <!-- Button --> 
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary">Submit</button>
+              <button type="reset" class="ml10" mat-raised-button>Reset</button>
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/>
+
+            
+          
+          </form>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>
+<!-- for material card -end-->

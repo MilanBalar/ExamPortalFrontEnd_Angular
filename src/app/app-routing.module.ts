@@ -10,6 +10,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserGuard } from './services/user.guard';
 import { ViewProfileComponent } from './pages/view-profile/view-profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
 
 const routes: Routes = [
 
@@ -30,7 +32,16 @@ const routes: Routes = [
        {
          path:'profile',
          component:ViewProfileComponent
-       }
+       },
+       {
+        path:'categories',
+        component:ViewCategoriesComponent
+       },
+       {
+        path:'add-categories',
+        component:AddCategoriesComponent
+       },
+       
    ] 
 },
 { 
