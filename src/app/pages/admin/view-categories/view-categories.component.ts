@@ -10,8 +10,8 @@ import Swal from 'sweetalert2';
 export class ViewCategoriesComponent implements OnInit {
 
   categories=[
-    { 'title':'abc',
-      'discription':'abc'
+    { 'title':'Sever is down !!',
+      'discription':'Sever is down !!'
     }
   ];
   constructor(private category:CategoryService) { }
@@ -29,7 +29,7 @@ export class ViewCategoriesComponent implements OnInit {
        Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Error in data loading',
+        text: 'Error in data loading of categories',
       });
      });
 

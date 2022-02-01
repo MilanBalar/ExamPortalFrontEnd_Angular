@@ -12,6 +12,7 @@ import { ViewProfileComponent } from './pages/view-profile/view-profile.componen
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 const routes: Routes = [
 
@@ -40,6 +41,10 @@ const routes: Routes = [
        {
         path:'add-categories',
         component:AddCategoriesComponent
+       },
+       {
+        path:'view-quizzes',
+        component:ViewQuizzesComponent
        },
        
    ] 

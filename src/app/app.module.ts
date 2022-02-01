@@ -25,6 +25,7 @@ import {MatListModule} from '@angular/material/list';//for sidebar inside shown 
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AddCategoriesComponent } from './pages/admin/add-categories/add-categor
     SidebarComponent,
     WelcomeComponent,
     ViewCategoriesComponent,
-    AddCategoriesComponent
+    AddCategoriesComponent,
+    ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,
