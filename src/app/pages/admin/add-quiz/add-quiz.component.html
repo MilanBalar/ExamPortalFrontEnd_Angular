@@ -8,28 +8,28 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <h1 class="text-center"><u>Add Quiz Here !!</u></h1>
-
-                    <form #logForm="ngForm" (ngSubmit)="addQuiz(logForm.value)">
+                   <!--{{quizData | json}} --> 
+                    <form (ngSubmit)="addQuiz()">
 
                         <!-- Title filed-->
                         <mat-form-field appearance="outline" class="full-area mt20">
                             <mat-label>Quiz title </mat-label>
-                            <input required matInput placeholder="Enter here" minlength="3" name="title" ngModel>
+                            <input [(ngModel)]="quizData.title" required matInput placeholder="Enter here" minlength="3" name="title">
                         </mat-form-field>
 
                         <!-- Discription filed-->
                         <mat-form-field appearance="outline" class="full-area">
                             <mat-label>discription</mat-label>
-                            <textarea required rows="8" matInput placeholder="Enter here" name="discription"
-                                ngModel></textarea>
+                            <textarea [(ngModel)]="quizData.discription" required rows="8" matInput placeholder="Enter here" name="discription"
+                            ></textarea>
                         </mat-form-field>
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- MaxMarks filed-->
                                 <mat-form-field appearance="outline" class="full-area mt20">
                                     <mat-label>Max marks </mat-label>
-                                    <input required matInput placeholder="Enter here" minlength="2" name="maxMarks"
-                                        ngModel>
+                                    <input [(ngModel)]="quizData.maxMarks" required matInput placeholder="Enter here" minlength="2" name="maxMarks"
+                                    >
                                 </mat-form-field>
                             </div>
 
@@ -37,21 +37,21 @@
                                 <!-- NoOfQuestion filed-->
                                 <mat-form-field appearance="outline" class="full-area mt20">
                                     <mat-label>No. Of question to be display </mat-label>
-                                    <input required matInput placeholder="Enter here" minlength="1" name="noOfQuestion"
-                                        ngModel>
+                                    <input [(ngModel)]="quizData.noOfQuestion" required matInput placeholder="Enter here" minlength="1" name="noOfQuestion"
+                                        >
                                 </mat-form-field>
                             </div>
                         </div>
 
                         <!-- Quiz is active or not filed-->
-                        <mat-slide-toggle class="mt20" [checked]="false">
+                        <mat-slide-toggle  [(ngModel)]="quizData.isActive"  name="isActive" class="mt20">
                             Publish status
                         </mat-slide-toggle>
 
                         <!-- Category filed-->
                         <mat-form-field appearance="outline" class="mt20 w100">
                             <mat-label>Select Category</mat-label>
-                            <mat-select name="tblCategories">
+                            <mat-select name="tblCategories" [(ngModel)]="quizData.tblCategories.catId">
                                 <mat-option *ngFor="let c of categories" [value]="c.catId">
                                     {{c.title}}
                                 </mat-option>

@@ -16,6 +16,7 @@ constructor(private http:HttpClient) { }
 
  //Add category
  public addQuiz(data:any){
+  console.warn("service data"+data)
   return this.http.post(`${baseURL}/quiz/`,data); 
  }
 

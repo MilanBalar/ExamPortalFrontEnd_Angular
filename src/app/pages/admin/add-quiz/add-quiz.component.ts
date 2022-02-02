@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -10,7 +11,20 @@ import Swal from 'sweetalert2';
 })
 export class AddQuizComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar,private quizService:QuizService) { }
+  constructor(private _snackBar: MatSnackBar,private quizService:QuizService,private category:CategoryService) { }
+  
+  quizData={
+    title:'',
+    discription:'',
+    maxMarks:'',
+    noOfQuestion:'',
+    isActive:false,
+    tblCategories:{
+      catId:''
+    }
+  }
+
+
 
   categories=[
     {
@@ -24,33 +38,63 @@ export class AddQuizComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.category.getAllCategories().subscribe((data:any)=>{
+       
+      this.categories=data;
+      console.warn('success data is' + this.categories)
+      
+    },
+   (error)=>{
+     console.error(error);
+     Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Error in data loading of categories',
+    });
+   });
   }
 
-  addQuiz(data1: any) {
-    console.warn(data1);
+  addQuiz() {
+    console.warn(this.quizData);
+    
     // Validation 
-    if (data1.title.trim() == '' || data1.title.trim() == null) {
+    if (this.quizData.title.trim() == '' || this.quizData.title.trim() == null) {
       this._snackBar.open('Title is required !!', 'Ok', { duration: 3000 });
       return;
     }
-    if (data1.discription.trim() == '' || data1.discription.trim() == null) {
+    if (this.quizData.discription.trim() == '' || this.quizData.discription.trim() == null) {
       this._snackBar.open('Discription is required !!', 'Ok', { duration: 3000 });
       return;
     }
-    if (data1.maxMarks.trim() == '' || data1.maxMarks.trim() == null) {
+    if (this.quizData.maxMarks.trim() == '' || this.quizData.maxMarks.trim() == null) {
       this._snackBar.open('Max Marks is required !!', 'Ok', { duration: 3000 });
       return;
     }
-    if (data1.noOfQuestion.trim() == '' || data1.noOfQuestion.trim() == null) {
+    if (this.quizData.noOfQuestion.trim() == '' || this.quizData.noOfQuestion.trim() == null) {
       this._snackBar.open('No. Of Question is required !!', 'Ok', { duration: 3000 });
       return;
     }
+    if (this.quizData.tblCategories.catId == '' || this.quizData.tblCategories == null) {
+      this._snackBar.open('Category selection is required !!', 'Ok', { duration: 3000 });
+      return;
+    }
+   
     
-
-    this.quizService.addQuiz(data1).subscribe(
+    this.quizService.addQuiz(this.quizData).subscribe(
       (data:any) => { 
         //success case
+        console.warn("success data"+data)
         Swal.fire('Success', 'Quiz Added !!', 'success');
+        this.quizData={// for create all fiels blank
+          title:'',
+          discription:'',
+          maxMarks:'',
+          noOfQuestion:'',
+          isActive:false,
+          tblCategories:{
+            catId:''
+          }
+       }
      },
       (error) => { 
         //error case
