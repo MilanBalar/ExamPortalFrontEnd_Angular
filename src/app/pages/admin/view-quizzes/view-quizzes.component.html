@@ -1,4 +1,4 @@
-<mat-card *ngFor="let d of quizzes">
+<mat-card *ngFor="let d of quizzes" class="mt10">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{d.title}}</mat-card-title>
@@ -15,7 +15,7 @@
         <button type="submit" mat-stroked-button color="primary"> Questions </button>
         <button mat-stroked-button color="primary"> Maximum Marks: {{d.maxMarks}} </button>
         <button mat-stroked-button color="primary"> Questions: {{d.noOfQuestion}} </button>
-        <button mat-stroked-button color="primary"> Update </button>
+        <button [routerLink]="'/admin-dashboard/update-quiz/'+d.quizId" mat-stroked-button color="primary"> Update </button>
         <button mat-stroked-button color="primary"> Attemps </button>
         <button mat-stroked-button color="warn" (click)="deleteQuiz(d.quizId)"> Delete </button>
       </mat-card-actions>

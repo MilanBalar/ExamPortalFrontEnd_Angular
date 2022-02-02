@@ -1,0 +1,73 @@
+<!-- for material card -start-->
+<mat-card class="common-backgound">
+    <div class="container text-center mt20">
+        <img src="../../../assets/add-quiz.jpg" width="20%" alt="Add Quiz icon" />
+    </div>
+    <div class="bootstrap-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h1 class="text-center"><u>Update Quiz Here !!</u></h1>
+                   <!-- {{quizData | json}}  -->
+                    <form (submit)="updateData()">
+
+                        <!-- Title filed-->
+                        <mat-form-field appearance="outline" class="full-area mt20">
+                            <mat-label>Quiz title </mat-label>
+                            <input [(ngModel)]="quizData.title" required matInput placeholder="Enter here" minlength="3" name="title">
+                        </mat-form-field>
+
+                        <!-- Discription filed-->
+                        <mat-form-field appearance="outline" class="full-area">
+                            <mat-label>discription</mat-label>
+                            <textarea [(ngModel)]="quizData.discription" required rows="8" matInput placeholder="Enter here" name="discription"
+                            ></textarea>
+                        </mat-form-field>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- MaxMarks filed-->
+                                <mat-form-field appearance="outline" class="full-area mt20">
+                                    <mat-label>Max marks </mat-label>
+                                    <input [(ngModel)]="quizData.maxMarks" required matInput placeholder="Enter here" minlength="2" name="maxMarks"
+                                    >
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- NoOfQuestion filed-->
+                                <mat-form-field appearance="outline" class="full-area mt20">
+                                    <mat-label>No. Of question to be display </mat-label>
+                                    <input [(ngModel)]="quizData.noOfQuestion" required matInput placeholder="Enter here" minlength="1" name="noOfQuestion"
+                                        >
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <!-- Quiz is active or not filed-->
+                        <mat-slide-toggle  [(ngModel)]="quizData.isActive"  name="isActive" class="mt20">
+                            Publish status
+                        </mat-slide-toggle>
+
+                        <!-- Category filed-->
+                        <mat-form-field appearance="outline" class="mt20 w100">
+                            <mat-label>Select Category</mat-label>
+                            <mat-select name="tblCategories" [(ngModel)]="quizData.tblCategories.catId">
+                                <mat-option *ngFor="let c of categories" [value]="c.catId">
+                                    {{c.title}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <!-- Button -->
+                        <div class="container text-center mt20">
+                            <button type="submit" mat-raised-button color="primary">Submit</button>
+                            <button type="reset" class="ml10" mat-raised-button>Reset</button>
+                        </div>
+                        <p></p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>
+<!-- for material card -end-->

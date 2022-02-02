@@ -66,3 +66,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .table tr td{
     padding : 10px 15px;
 }
+
+.w100{
+    width: 100%;
+}

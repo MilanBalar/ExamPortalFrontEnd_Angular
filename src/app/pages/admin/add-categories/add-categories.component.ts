@@ -31,7 +31,11 @@ export class AddCategoriesComponent implements OnInit {
     this.categoryService.addCategory(data1).subscribe(
       (data:any) => { 
         //success case
-        Swal.fire('Success', 'Category Added !!', 'success');
+        Swal.fire('Success', 'Category Added !!', 'success').then(
+          (e)=>{
+            this.router.navigate(['/admin-dashboard/categories']);
+          }
+        )
      },
       (error) => { 
         //error case

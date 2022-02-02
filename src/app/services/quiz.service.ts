@@ -21,9 +21,16 @@ constructor(private http:HttpClient) { }
 
  //delete quiz
  public deleteQuiz(id:any){
-   console.warn("DELETE URL "+`${baseURL}/quiz/${id}`);
    return this.http.delete(`${baseURL}/quiz/${id}`); 
  }
  
+ //get quiz by id
+ public getQuizById(id:any){
+  return this.http.get(`${baseURL}/quiz/${id}`); 
+ }
 
+ //update quiz
+ public updateQuiz(data:any){
+  return this.http.put(`${baseURL}/quiz/`,data); 
+ }
 }
