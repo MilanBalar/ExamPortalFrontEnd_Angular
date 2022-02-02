@@ -14,10 +14,16 @@ constructor(private http:HttpClient) { }
   return this.http.get(`${baseURL}/quiz/`); 
  }
 
- //Add category
+ //Add quiz
  public addQuiz(data:any){
-  console.warn("service data"+data)
   return this.http.post(`${baseURL}/quiz/`,data); 
  }
+
+ //delete quiz
+ public deleteQuiz(id:any){
+   console.warn("DELETE URL "+`${baseURL}/quiz/${id}`);
+   return this.http.delete(`${baseURL}/quiz/${id}`); 
+ }
+ 
 
 }

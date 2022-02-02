@@ -42,4 +42,36 @@ export class ViewQuizzesComponent implements OnInit {
    });
   }
 
+  //Delete quiz
+  deleteQuiz(id:any){
+    Swal.fire({
+      icon: 'info',
+      title: 'Are you sure ?',
+      confirmButtonText:'Delete',
+      showCancelButton:true
+    }).then((result) => {
+       if(result.isConfirmed){
+        // quiz delete logic start
+          this.quizServie.deleteQuiz(id).subscribe((data:any)=>{
+            this.quizzes=this.quizzes.filter((quiz) => quiz.quizId != id);// this filter apply bcoz :- when we delete the quiz, it's also remove from the UI
+            Swal.fire({
+              icon: 'success',
+              title: 'Sucess !!',
+              text: 'Quiz deleted successfully',
+            });
+          },
+        (error)=>{
+          console.error(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Error in data loading of Quizzes',
+          });
+        });
+        // quiz delete logic end
+       }
+
+    });
+
+  }
 }
