@@ -12,7 +12,7 @@
       </mat-card-content>
 
       <mat-card-actions>
-        <button type="submit" mat-stroked-button color="primary"> Questions </button>
+        <button [routerLink]="'/admin-dashboard/view-question/' + d.quizId + '/' + d.title" mat-stroked-button color="primary"> Questions </button>
         <button mat-stroked-button color="primary"> Maximum Marks: {{d.maxMarks}} </button>
         <button mat-stroked-button color="primary"> Questions: {{d.noOfQuestion}} </button>
         <button [routerLink]="'/admin-dashboard/update-quiz/'+d.quizId" mat-stroked-button color="primary"> Update </button>

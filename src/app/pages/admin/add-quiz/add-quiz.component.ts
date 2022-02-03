@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
@@ -11,14 +12,14 @@ import Swal from 'sweetalert2';
 })
 export class AddQuizComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar,private quizService:QuizService,private category:CategoryService) { }
+  constructor(private _snackBar: MatSnackBar,private quizService:QuizService,private category:CategoryService,private router:Router) { }
   
   quizData={
     title:'',
     discription:'',
     maxMarks:'',
     noOfQuestion:'',
-    isActive:false,
+    isActive:'',
     tblCategories:{
       catId:''
     }
@@ -84,17 +85,11 @@ export class AddQuizComponent implements OnInit {
       (data:any) => { 
         //success case
         console.warn("success data"+data)
-        Swal.fire('Success', 'Quiz Added !!', 'success');
-        this.quizData={// for create all fiels blank
-          title:'',
-          discription:'',
-          maxMarks:'',
-          noOfQuestion:'',
-          isActive:true,
-          tblCategories:{
-            catId:''
+        Swal.fire('Success', 'Quiz Added !!', 'success').then(
+          (e)=>{
+            this.router.navigate(['/admin-dashboard/view-quizzes']);
           }
-       }
+        )
      },
       (error) => { 
         //error case

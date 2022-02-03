@@ -1,0 +1,54 @@
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card>
+              <div class="container text-center">
+                <img src="../../../assets/view-questions.png" class="profile-image" alt="view question icon" />
+                <h1>Questions of {{qTitle}}</h1>
+              </div>
+            </mat-card>  
+            <mat-card *ngFor="let d of questions; let i=index" class="mt20">
+                <mat-card-content>
+                    <p>
+                        <b> Q-{{i+1}}) </b> <span class="ml20" [innerHTML]="d.content"></span>
+                        <!-- here we innerHTML, cause of if out data contain HTMl so it's automatic resolved -->
+                    </p>
+
+                    <div class="container-fluid">
+                        <div class="row ml20 mr20">
+                            <div class="col-md-6">
+                                <p>
+                                  <b> A) </b> {{d.question1}}
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                  <b> B) </b>  {{d.question2}}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row ml20 mr20">
+                            <div class="col-md-6">
+                                <p>
+                                  <b> C) </b> {{d.question3}}
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                  <b> D) </b>  {{d.question4}}
+                                </p>
+                            </div>
+                        </div>
+
+                        <mat-divider></mat-divider>
+                        <p class="mt20">
+                            <b> Currect Answer is :</b> {{d.answer}}
+                        </p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
