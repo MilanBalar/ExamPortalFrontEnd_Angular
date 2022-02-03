@@ -6,8 +6,13 @@
               <div class="container text-center">
                 <img src="../../../assets/view-questions.png" class="profile-image" alt="view question icon" />
                 <h1>Questions of {{qTitle}}</h1>
-              </div>
-            </mat-card>  
+                <!-- Button --> 
+                <div class="text-center">
+                  <button type="submit" [routerLink]="'/admin-dashboard/add-question/'+qId+'/'+qTitle" mat-raised-button color="primary">Add New Question</button>
+                </div>
+            </div>
+            </mat-card>
+            
             <mat-card *ngFor="let d of questions; let i=index" class="mt20">
                 <mat-card-content>
                     <p>

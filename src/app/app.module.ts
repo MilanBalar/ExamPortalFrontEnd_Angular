@@ -30,7 +30,8 @@ import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'; //MatSlideToggleModule is for use showing the switch (quiz published or not)
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
-import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component'; //for select drop down
+import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component'; //for select drop down
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questi
     ViewQuizzesComponent,
     AddQuizComponent,
     UpdateQuizComponent,
-    ViewQuestionsComponent
+    ViewQuestionsComponent,
+    AddQuestionComponent
   ],
   imports: [
     BrowserModule,
