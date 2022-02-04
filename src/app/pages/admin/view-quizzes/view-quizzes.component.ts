@@ -46,7 +46,7 @@ export class ViewQuizzesComponent implements OnInit {
   deleteQuiz(id:any){
     Swal.fire({
       icon: 'info',
-      title: 'Are you sure ?',
+      title: 'Are you sure ?, want to delete this quiz ',
       confirmButtonText:'Delete',
       showCancelButton:true
     }).then((result) => {

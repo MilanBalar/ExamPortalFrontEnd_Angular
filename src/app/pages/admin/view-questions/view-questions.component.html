@@ -1,4 +1,3 @@
-
 <div class="bootstrap-wrapper">
     <div class="row">
         <div class="col-md-12">
@@ -8,11 +7,11 @@
                 <h1>Questions of {{qTitle}}</h1>
                 <!-- Button --> 
                 <div class="text-center">
-                  <button type="submit" [routerLink]="'/admin-dashboard/add-question/'+qId+'/'+qTitle" mat-raised-button color="primary">Add New Question</button>
+                  <button type="submit" [routerLink]="'/admin-dashboard/add-question/'+qId+'/'+qTitle" mat-stroked-button color="primary">Add New Question</button>
                 </div>
             </div>
             </mat-card>
-            
+            <!-- {{ questions | json}} -->
             <mat-card *ngFor="let d of questions; let i=index" class="mt20">
                 <mat-card-content>
                     <p>
@@ -46,10 +45,11 @@
                                 </p>
                             </div>
                         </div>
-
                         <mat-divider></mat-divider>
                         <p class="mt20">
-                            <b> Currect Answer is :</b> {{d.answer}}
+                            <b> Currect Answer is :</b> {{d.answer}} <br/><br/>
+                            <button type="submit"  mat-stroked-button color="primary">Update question</button> &nbsp;
+                            <button type="submit" (click)="deleteQuestion(d.questionId)" mat-stroked-button color="warn">Delete question</button>
                         </p>
                     </div>
                 </mat-card-content>
