@@ -85,7 +85,7 @@ export class AddQuizComponent implements OnInit {
       (data:any) => { 
         //success case
         console.warn("success data"+data)
-        Swal.fire('Success', 'Quiz Added !!', 'success').then(
+        Swal.fire('Success', 'Question Added !!', 'success').then(
           (e)=>{
             this.router.navigate(['/admin-dashboard/view-quizzes']);
           }
