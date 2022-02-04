@@ -32,6 +32,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component'; //for select drop down
+import { CKEditorModule } from 'ckeditor4-angular';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
     MatIconModule,
     MatListModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    CKEditorModule
     
   ],
   providers: [authInterceptorProviders], //this authInterceptorProviders class in we defined the Interceptor. for adding every request with token.
