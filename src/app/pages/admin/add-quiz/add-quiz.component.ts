@@ -19,7 +19,7 @@ export class AddQuizComponent implements OnInit {
     discription:'',
     maxMarks:'',
     noOfQuestion:'',
-    isActive:'',
+    active:true,
     tblCategories:{
       catId:''
     }

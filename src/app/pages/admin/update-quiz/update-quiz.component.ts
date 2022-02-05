@@ -20,14 +20,24 @@ export class UpdateQuizComponent implements OnInit {
      ) { } //ActivatedRouteis use for fatch the data from the URL
   
   categories=[
-    { 'title':'Sever is down !!',
-      'discription':'Sever is down !!',
-      'catId':1
+    { title:'Sever is down !!',
+      discription:'Sever is down !!',
+      catId:1
     }
   ]
 
   quizId=0; 
-  quizData:any;
+  quizData={
+      title:'',
+      discription:'',
+      maxMarks:'',
+      noOfQuestion:'',
+      active:'',
+      tblCategories:{
+        catId:''
+      }
+    }
+  
  
   ngOnInit(): void {
     //load quiz
