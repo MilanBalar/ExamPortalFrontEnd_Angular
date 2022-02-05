@@ -74,7 +74,8 @@ export class AddQuestionComponent implements OnInit {
         //success case
         console.warn("success data"+data)
         Swal.fire('Success', 'Question Added !!. add another one', 'success');
-        this.questions={
+        window.location.reload();
+        /* this.questions={
           content:'',
           image:'',
           question1:'',
@@ -85,7 +86,7 @@ export class AddQuestionComponent implements OnInit {
           tblQuiz:{
             quizId:''
           }
-       }
+       } */
      },
       (error) => { 
         //error case
