@@ -30,36 +30,40 @@ export class LoadQuizComponent implements OnInit {
     ) { }
   
   ngOnInit(): void {
-    this.categoryId=this._route.snapshot.params['catId'];
+ 
+        this._route.params.subscribe((params) =>{ // we write all logic inside subscrib, bcoz when route change so according to every time component load. so we can get the quiz according to category.
+              this.categoryId=params['catId'];
+            
+            //if category id is zero then load all the quiz. otherwise load specific quiz
+            if(this.categoryId==0){
+                    this._quiz.getAllQuiz().subscribe((data:any)=>{
+                    this.quizzes=data;
+                    console.warn('success data is' + this.quizzes)
+                  },
+                (error)=>{
+                    console.error(error);
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error in data loading of Quizzes',
+                  });
+                });
+            }else{
+                this._quiz.getQuizzesOfCategory(this.categoryId).subscribe((data:any)=>{
+                this.quizzes=data;
+                console.warn('success data is' + this.quizzes)
+              },
+            (error)=>{
+                    console.error(error);
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error in data loading of Quizzes',
+                  });
+                });
+          }
+      });
     
-    //if category id is zero then load all the quiz. otherwise load specific quiz
-    if(this.categoryId==0){
-            this._quiz.getAllQuiz().subscribe((data:any)=>{
-            this.quizzes=data;
-            console.warn('success data is' + this.quizzes)
-          },
-        (error)=>{
-            console.error(error);
-            Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Error in data loading of Quizzes',
-          });
-        });
-    }else{
-      this._quiz.getQuizById(this.categoryId).subscribe((data:any)=>{
-        this.quizzes=data;
-        console.warn('success data is' + this.quizzes)
-      },
-    (error)=>{
-            console.error(error);
-            Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Error in data loading of Quizzes',
-          });
-        });
-   }
   }
 
 }

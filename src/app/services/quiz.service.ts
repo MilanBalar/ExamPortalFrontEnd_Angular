@@ -33,4 +33,10 @@ constructor(private http:HttpClient) { }
  public updateQuiz(data:any){
   return this.http.put(`${baseURL}/quiz/`,data); 
  }
+
+ //get quizzes of category
+ public getQuizzesOfCategory(catId:any){
+  return this.http.get(`${baseURL}/quiz/category/${catId}`); 
+ }
+ 
 }

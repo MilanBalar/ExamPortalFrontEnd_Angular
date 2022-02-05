@@ -80,3 +80,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .w50{
     width: 50%;
 }
+
+.red{
+    color: red;
+}

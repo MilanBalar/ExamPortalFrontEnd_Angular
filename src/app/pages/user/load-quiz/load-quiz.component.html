@@ -32,5 +32,20 @@
                 </mat-card>
             </div>
         </div>
-    </div>
+         
+        <!-- if quiz not available then-->
+        <div class="col-md-12" *ngIf="quizzes.length==0">
+            <mat-card>
+                <mat-card-content>
+                    <div class="text-center">
+                        <h1 class="red"><b>No quizzes are available in this category !!</b></h1>
+                        <br />
+                        <img src="../../../assets/no-data.jpg" width="50%" alt="quiz" />
+                        <br />
+                        
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+   </div>
 </div>

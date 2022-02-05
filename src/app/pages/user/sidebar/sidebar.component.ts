@@ -10,8 +10,9 @@ import Swal from 'sweetalert2';
 export class SidebarComponent implements OnInit {
 
   categories=[
-    { 'title':'Sever is down !!',
-      'discription':'Sever is down !!'
+    { catId:'',
+      title:'Sever is down !!',
+      discription:'Sever is down !!'
     }
   ];
   constructor(private category:CategoryService) { }
