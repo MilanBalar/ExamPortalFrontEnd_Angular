@@ -1,0 +1,36 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <mat-card>
+            <div class="container text-center">
+                <img src="../../../assets/add-quiz.jpg" width="20%" alt="quiz" />
+                <h1><b><u>Available Quizzes</u></b></h1>
+            </div>
+        </mat-card>
+        <div class="row mt20" *ngIf="quizzes">
+            <div class="col-md-4" *ngFor="let q of quizzes">
+                <mat-card class="mb20">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>
+                            {{q.title}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            {{q.tblCategories.title}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <!-- truncate class, when we have many line of discription so it's automatic manage it in single line.-->
+                        <p class="truncate">{{q.discription}}</p>
+                    </mat-card-content>
+                    <!--Button-->
+                    <div class="mt20">
+                        <button mat-raised-button color="primary">View</button>
+                        <button class="ml5" mat-raised-button color="warn">Start</button>
+                        <button mat-stroked-button color="primary">Marks:{{q.maxMarks}}</button>
+                        <button mat-stroked-button color="primary">Question:{{q.noOfQuestion}}</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -47,7 +47,7 @@ export class SigninComponent implements OnInit {
                window.location.href='/admin-dashboard';
             }else if(this.loginService.getUserRole()=="USER"){
               //this.router.navigate(['user-dashboard']);
-              window.location.href='/user-dashboard';
+              window.location.href='/user-dashboard/0'; // here we pass zero bcoz, we want load all the quiz.
             }else{
               this.loginService.logout();
             }
