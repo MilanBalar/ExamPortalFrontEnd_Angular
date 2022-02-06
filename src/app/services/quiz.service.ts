@@ -38,5 +38,15 @@ constructor(private http:HttpClient) { }
  public getQuizzesOfCategory(catId:any){
   return this.http.get(`${baseURL}/quiz/category/${catId}`); 
  }
- 
+
+ //get active quizzes
+ public getActiveQuizzes(){
+  return this.http.get(`${baseURL}/quiz/active`); 
+ }
+
+ //get active quizzes of category
+ public getActiveQuizzesOfCategory(catId:any){
+  return this.http.get(`${baseURL}/quiz/category/active/${catId}`); 
+ }
+
 }

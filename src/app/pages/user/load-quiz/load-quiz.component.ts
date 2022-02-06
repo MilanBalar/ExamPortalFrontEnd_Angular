@@ -36,7 +36,7 @@ export class LoadQuizComponent implements OnInit {
             
             //if category id is zero then load all the quiz. otherwise load specific quiz
             if(this.categoryId==0){
-                    this._quiz.getAllQuiz().subscribe((data:any)=>{
+                    this._quiz.getActiveQuizzes().subscribe((data:any)=>{
                     this.quizzes=data;
                     console.warn('success data is' + this.quizzes)
                   },
@@ -49,7 +49,7 @@ export class LoadQuizComponent implements OnInit {
                   });
                 });
             }else{
-                this._quiz.getQuizzesOfCategory(this.categoryId).subscribe((data:any)=>{
+                this._quiz.getActiveQuizzesOfCategory(this.categoryId).subscribe((data:any)=>{
                 this.quizzes=data;
                 console.warn('success data is' + this.quizzes)
               },
