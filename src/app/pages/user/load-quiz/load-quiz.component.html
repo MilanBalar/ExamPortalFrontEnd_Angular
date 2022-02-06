@@ -27,7 +27,7 @@
                     <!--Button-->
                     <div class="mt20 text-center">
                         <button mat-raised-button color="primary">View</button>
-                        <button class="ml10" mat-raised-button color="warn">Start</button>
+                        <button class="ml10" mat-raised-button [routerLink]="'/user-dashboard/instruction/'+q.quizId" color="warn">Start</button>
                        <!--  <button mat-stroked-button color="primary">Marks:{{q.maxMarks}}</button>
                         <button mat-stroked-button color="primary">Question:{{q.noOfQuestion}}</button> -->
                     </div>

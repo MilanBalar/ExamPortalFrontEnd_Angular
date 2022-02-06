@@ -34,7 +34,8 @@ import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questi
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component'; //for select drop down
 import { CKEditorModule } from 'ckeditor4-angular';
 import { SidebarComponent as UserSidebarComponent } from './pages/user/sidebar/sidebar.component';
-import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component'
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component'
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component'
     ViewQuestionsComponent,
     AddQuestionComponent,
     UserSidebarComponent,
-    LoadQuizComponent
+    LoadQuizComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,
