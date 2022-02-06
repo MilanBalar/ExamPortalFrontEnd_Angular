@@ -21,13 +21,15 @@
                     <mat-card-content>
                         <!-- truncate class, when we have many line of discription so it's automatic manage it in single line.-->
                         <p class="truncate">{{q.discription}}</p>
+                        <p class="text-center"><span><b>Total Marks :</b> {{q.maxMarks}}</span>  <span class="ml70"><b> No. of Questions :</b> {{q.noOfQuestion}}</span> </p>
+                        
                     </mat-card-content>
                     <!--Button-->
-                    <div class="mt20">
+                    <div class="mt20 text-center">
                         <button mat-raised-button color="primary">View</button>
-                        <button class="ml5" mat-raised-button color="warn">Start</button>
-                        <button mat-stroked-button color="primary">Marks:{{q.maxMarks}}</button>
-                        <button mat-stroked-button color="primary">Question:{{q.noOfQuestion}}</button>
+                        <button class="ml10" mat-raised-button color="warn">Start</button>
+                       <!--  <button mat-stroked-button color="primary">Marks:{{q.maxMarks}}</button>
+                        <button mat-stroked-button color="primary">Question:{{q.noOfQuestion}}</button> -->
                     </div>
                 </mat-card>
             </div>

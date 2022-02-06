@@ -46,7 +46,9 @@ export class SignupComponent implements OnInit {
     this.userService.addUser(data).subscribe(
       (data) => {
         //success case
-        Swal.fire('Success', 'User is registered !!', 'success');
+        Swal.fire('Success', 'User is registered !!', 'success').then((e)=>{
+          window.location.reload();}
+        )
         console.warn('success is' + data);
       },
       (error) => {

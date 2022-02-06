@@ -41,6 +41,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
     margin-bottom: 20px !important;
 }
 
+.ml70{
+    margin-left: 70px !important;
+}
 
 .ml10{
     margin-left: 10px !important;
