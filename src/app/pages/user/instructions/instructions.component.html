@@ -45,9 +45,12 @@
                             <li>Result of the quiz is automatically generated in the form of <b> PDF copy</b>.</li>
                         </ul>
                     </mat-card-content>
+
+                    <br/><br/>
                     <mat-card-actions class="text-center">
-                        <button type="submit" mat-raised-button color="primary">Start Quiz</button>
+                        <button type="submit" (click)="startQuiz()" mat-raised-button color="primary">Start Quiz</button>
                     </mat-card-actions>
+                    <br/><br/>
                 </mat-card>    
             </div>
         </div>

@@ -35,7 +35,8 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
 import { CKEditorModule } from 'ckeditor4-angular';
 import { SidebarComponent as UserSidebarComponent } from './pages/user/sidebar/sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
-import { InstructionsComponent } from './pages/user/instructions/instructions.component'
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartExamComponent } from './pages/user/start-exam/start-exam.component'
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
     AddQuestionComponent,
     UserSidebarComponent,
     LoadQuizComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    StartExamComponent
   ],
   imports: [
     BrowserModule,

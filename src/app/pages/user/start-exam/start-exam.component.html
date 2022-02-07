@@ -1,0 +1,51 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row" *ngIf="questions">
+            <div class="col-md-2">
+                <!-- Instruction-->
+                <h1>Instruction</h1>
+            </div>
+            <div class="col-md-8">
+                <!-- Question-->
+                <ng-container>
+                    <h1>On going quiz is <b>{{questions[0].tblQuiz.title}}</b></h1>
+                </ng-container>
+
+                <mat-card *ngFor="let q of questions;let i=index" class="mt10">
+                    <mat-card-content>
+                        <h3><b>Q-{{i+1}})</b><span class="ml20" [innerHTML]="q.content"></span></h3>
+                    
+                    <mat-divider></mat-divider>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                             <input type="radio" [value]="q.question1" [name]="i"/>&nbsp; {{q.question1}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.question2" [name]="i"/>&nbsp; {{q.question2}}
+                        </div>
+                    </div>
+                    <div class="row mt10">
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.question3" [name]="i"/>&nbsp; {{q.question3}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.question4" [name]="i"/>&nbsp; {{q.question4}}
+                        </div>
+                    </div>
+                   </mat-card-content> 
+                </mat-card>
+
+                <div class="container text-center mt20 mb20">
+                    <button type="submit" mat-raised-button color="primary">Submit Exam</button>
+                </div>
+                
+    
+            </div>
+            <div class="col-md-2">
+                <!-- Timmer-->
+    
+            </div>
+        </div>
+    </div>
+</div>

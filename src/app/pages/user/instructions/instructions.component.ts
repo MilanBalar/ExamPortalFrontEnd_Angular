@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -25,6 +25,7 @@ export class InstructionsComponent implements OnInit {
   constructor(
     private _route:ActivatedRoute,
     private _quiz:QuizService,
+    private _router:Router
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +41,19 @@ export class InstructionsComponent implements OnInit {
       text: 'Error in data loading of Quiz instruction',
     });
    });
+  }
+
+  public startQuiz(){
+    Swal.fire({
+      icon: 'info',
+      title: 'Are you sure ?, want to start the quiz ',
+      confirmButtonText:'Start Quiz',
+      showCancelButton:true
+    }).then((result) => {
+      if(result.isConfirmed){
+      this._router.navigate(['/start-exam/'+this.quizId]);
+      }
+    });
   }
 
 }

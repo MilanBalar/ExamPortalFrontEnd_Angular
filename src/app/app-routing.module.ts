@@ -19,6 +19,7 @@ import { ViewQuestionsComponent } from './pages/admin/view-questions/view-questi
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartExamComponent } from './pages/user/start-exam/start-exam.component';
 
 const routes: Routes = [
 
@@ -83,10 +84,16 @@ const routes: Routes = [
     {
       path:'instruction/:quizId',
       component: InstructionsComponent
-    }
+    },
+    
   ]
 },
 {path:'view-profile',component:ViewProfileComponent}, 
+{
+  path:'start-exam/:quizId',
+  component:StartExamComponent,
+  canActivate:[UserGuard], //so UserGuard protect the 'start-exam' routes 
+}
 ];
 
 @NgModule({
