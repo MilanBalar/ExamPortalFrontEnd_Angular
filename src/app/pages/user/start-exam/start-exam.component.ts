@@ -33,7 +33,6 @@ export class StartExamComponent implements OnInit {
     this._question.getQuestionOfQuizByIdForUser(this.quizId).subscribe((data:any) => {
        this.questions=data;
        this.timer=this.questions.length * 2 * 60; // we store time in form of second.
-       console.warn(this.timer);
        this.questions.forEach((q:any)=> {
          q['givenAnswer']='';
        });

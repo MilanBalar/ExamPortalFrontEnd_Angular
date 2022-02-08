@@ -17,7 +17,6 @@ export class SigninComponent implements OnInit {
   }
   
   login(data: any) {
-    console.warn(data);
     // Validation 
     if (data.userName == '' || data.userName == null) {
       this._snackBar.open('User name is required !!', 'Ok', { duration: 3000 });
@@ -38,7 +37,6 @@ export class SigninComponent implements OnInit {
         this.loginService.getCurrentUser().subscribe(
           (user:any)=>{ 
             this.loginService.setUser(user);
-            console.warn("current login user is :"+user.userName);
             
             //redirect .... ADMIN : admin dashboard
             //redirect .... User :  user dashboard

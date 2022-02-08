@@ -42,8 +42,6 @@ export class AddQuizComponent implements OnInit {
     this.category.getAllCategories().subscribe((data:any)=>{
        
       this.categories=data;
-      console.warn('success data is' + this.categories)
-      
     },
    (error)=>{
      console.error(error);
@@ -56,8 +54,6 @@ export class AddQuizComponent implements OnInit {
   }
 
   addQuiz() {
-    console.warn(this.quizData);
-    
     // Validation 
     if (this.quizData.title.trim() == '' || this.quizData.title.trim() == null) {
       this._snackBar.open('Title is required !!', 'Ok', { duration: 3000 });
@@ -84,7 +80,6 @@ export class AddQuizComponent implements OnInit {
     this.quizService.addQuiz(this.quizData).subscribe(
       (data:any) => { 
         //success case
-        console.warn("success data"+data)
         Swal.fire('Success', 'Question Added !!', 'success').then(
           (e)=>{
             this.router.navigate(['/admin-dashboard/view-quizzes']);

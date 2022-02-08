@@ -30,7 +30,6 @@ export class ViewQuizzesComponent implements OnInit {
      this.quizServie.getAllQuiz().subscribe((data:any)=>{
        
       this.quizzes=data;
-      console.warn('success data is' + this.quizzes)
     },
    (error)=>{
      console.error(error);

@@ -34,7 +34,6 @@ export class ViewQuestionsComponent implements OnInit {
     //load question
      this._question.getQuestionOfQuizById(this.qId).subscribe((data:any) => {
        this.questions=data;
-       console.warn("question data "+this.questions);
      },
      (error) => { 
       console.warn("error in question  "+error);

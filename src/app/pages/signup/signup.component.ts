@@ -16,7 +16,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {}
   register(data: any) {
-    console.warn(data);
     // Validation
     if (data.userName == '' || data.userName == null) {
       this._snackBar.open('User name is required !!', 'Ok', { duration: 3000 });
@@ -49,7 +48,6 @@ export class SignupComponent implements OnInit {
         Swal.fire('Success', 'User is registered !!', 'success').then((e)=>{
           window.location.reload();}
         )
-        console.warn('success is' + data);
       },
       (error) => {
         //error case

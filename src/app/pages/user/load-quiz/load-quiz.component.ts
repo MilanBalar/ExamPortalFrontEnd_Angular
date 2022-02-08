@@ -38,7 +38,6 @@ export class LoadQuizComponent implements OnInit {
             if(this.categoryId==0){
                     this._quiz.getActiveQuizzes().subscribe((data:any)=>{
                     this.quizzes=data;
-                    console.warn('success data is' + this.quizzes)
                   },
                 (error)=>{
                     console.error(error);
@@ -51,7 +50,6 @@ export class LoadQuizComponent implements OnInit {
             }else{
                 this._quiz.getActiveQuizzesOfCategory(this.categoryId).subscribe((data:any)=>{
                 this.quizzes=data;
-                console.warn('success data is' + this.quizzes)
               },
             (error)=>{
                     console.error(error);

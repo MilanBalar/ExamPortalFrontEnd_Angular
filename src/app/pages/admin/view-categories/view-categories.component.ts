@@ -21,8 +21,6 @@ export class ViewCategoriesComponent implements OnInit {
    this.category.getAllCategories().subscribe((data:any)=>{
        
         this.categories=data;
-        console.warn('success data is' + this.categories)
-        
       },
      (error)=>{
        console.error(error);

@@ -17,7 +17,6 @@ export class AddCategoriesComponent implements OnInit {
   }
   
   addCategory(data1: any) {
-    console.warn(data1);
     // Validation 
     if (data1.title.trim() == '' || data1.title.trim() == null) {
       this._snackBar.open('Title is required !!', 'Ok', { duration: 3000 });

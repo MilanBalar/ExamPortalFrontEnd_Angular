@@ -54,8 +54,6 @@ export class UpdateQuizComponent implements OnInit {
      this.category.getAllCategories().subscribe((data:any)=>{
        
       this.categories=data;
-      console.warn('success data is' + this.categories)
-      
     },
     (error)=>{
      console.error(error);
@@ -95,7 +93,6 @@ export class UpdateQuizComponent implements OnInit {
     this._quizService.updateQuiz(this.quizData).subscribe(
       (data:any) => { 
         //success case
-        console.warn("success data"+data)
         Swal.fire('Success', 'Quiz Updated !!', 'success').then(
           (e)=>{
             this._router.navigate(['/admin-dashboard/view-quizzes']);

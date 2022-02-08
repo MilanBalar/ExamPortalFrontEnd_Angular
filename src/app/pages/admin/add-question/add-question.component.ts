@@ -40,8 +40,6 @@ export class AddQuestionComponent implements OnInit {
 
   //add Question
   public addQuestion(){
-    console.warn(this.questions);
-    
     // Validation 
     if (this.questions.content.trim() == '' || this.questions.content.trim() == null) {
       this._snackBar.open('Content is required !!', 'Ok', { duration: 3000 });
@@ -72,7 +70,6 @@ export class AddQuestionComponent implements OnInit {
     this._question.addQuestion(this.questions).subscribe(
       (data:any) => { 
         //success case
-        console.warn("success data"+data)
         Swal.fire('Success', 'Question Added !!. add another one', 'success');
         window.location.reload();
         /* this.questions={
