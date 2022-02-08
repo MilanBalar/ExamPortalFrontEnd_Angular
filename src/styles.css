@@ -12,6 +12,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .text-right{
     text-align: right;  
 }
+.text-left{
+    text-align: left;  
+}
 .margin-top{
     margin-top: 30px;
 }

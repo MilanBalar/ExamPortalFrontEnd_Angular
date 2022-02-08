@@ -13,6 +13,10 @@ export class StartExamComponent implements OnInit {
 
   quizId:any;
   questions:any;
+  marksGot=0;
+  currectAnswers=0;
+  attempted=0;
+  isSubmitted=false;
 
   constructor(private _locationSt:LocationStrategy,
     private _route:ActivatedRoute,
@@ -27,6 +31,10 @@ export class StartExamComponent implements OnInit {
   loadQuestion() {
     this._question.getQuestionOfQuizByIdForUser(this.quizId).subscribe((data:any) => {
        this.questions=data;
+       this.questions.forEach((q:any)=> {
+         q['givenAnswer']='';
+       });
+
        console.warn(this.questions)
     },(error)=>{
        //error case
@@ -47,5 +55,32 @@ export class StartExamComponent implements OnInit {
     });
      
   }
+
+  //submit quiz
+  submitQuiz(){
+    Swal.fire({
+      icon: 'info',
+      title: 'Are you sure ?, want to submit the quiz ',
+      confirmButtonText:'Start Quiz',
+      showCancelButton:true
+    }).then((result) => {
+      if(result.isConfirmed){
+        this.isSubmitted=true;
+        //calculation
+        this.questions.forEach((q:any)=>{
+          if(q.answer == q.givenAnswer){
+            this.currectAnswers++;
+            let marskSingle=this.questions[0].tblQuiz.maxMarks/this.questions.length;
+            this.marksGot += marskSingle;
+          }
+          if(q.givenAnswer.trim() != ''){
+            this.attempted++;
+          }
+       });
+      }
+    });
+  }
+
+  
 
 }
