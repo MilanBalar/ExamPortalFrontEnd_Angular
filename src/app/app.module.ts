@@ -36,7 +36,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { SidebarComponent as UserSidebarComponent } from './pages/user/sidebar/sidebar.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
-import { StartExamComponent } from './pages/user/start-exam/start-exam.component'
+import { StartExamComponent } from './pages/user/start-exam/start-exam.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { StartExamComponent } from './pages/user/start-exam/start-exam.component
     MatSlideToggleModule,
     MatSelectModule,
     CKEditorModule,
+    MatProgressSpinnerModule
     
     
   ],

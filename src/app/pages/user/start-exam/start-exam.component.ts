@@ -17,6 +17,7 @@ export class StartExamComponent implements OnInit {
   currectAnswers=0;
   attempted=0;
   isSubmitted=false;
+  timer:any;
 
   constructor(private _locationSt:LocationStrategy,
     private _route:ActivatedRoute,
@@ -31,11 +32,13 @@ export class StartExamComponent implements OnInit {
   loadQuestion() {
     this._question.getQuestionOfQuizByIdForUser(this.quizId).subscribe((data:any) => {
        this.questions=data;
+       this.timer=this.questions.length * 2 * 60; // we store time in form of second.
+       console.warn(this.timer);
        this.questions.forEach((q:any)=> {
          q['givenAnswer']='';
        });
 
-       console.warn(this.questions)
+       this.startTimer();
     },(error)=>{
        //error case
        Swal.fire({
@@ -61,11 +64,16 @@ export class StartExamComponent implements OnInit {
     Swal.fire({
       icon: 'info',
       title: 'Are you sure ?, want to submit the quiz ',
-      confirmButtonText:'Start Quiz',
+      confirmButtonText:'Submit Quiz',
       showCancelButton:true
     }).then((result) => {
       if(result.isConfirmed){
-        this.isSubmitted=true;
+        this.evaluteQuiz();
+      }
+    });
+  }
+  evaluteQuiz() {
+    this.isSubmitted=true;
         //calculation
         this.questions.forEach((q:any)=>{
           if(q.answer == q.givenAnswer){
@@ -77,10 +85,27 @@ export class StartExamComponent implements OnInit {
             this.attempted++;
           }
        });
-      }
-    });
   }
 
+  //decrese timer
+  startTimer(){
+   let t= window.setInterval(()=>{
+     if(this.timer <= 0){
+       this.evaluteQuiz();
+       clearInterval(t);
+     }else{
+       this.timer--;
+     }
+      
+    },1000)// means it's call above callback to every 1000 milisecounds
+  }
+
+  //get formated time 
+  getFormatedTime(){
+    let mm=Math.floor(this.timer/60);
+    let ss=this.timer-(mm*60);
+    return `${mm} min : ${ss} sec`;
+  }
   
 
 }

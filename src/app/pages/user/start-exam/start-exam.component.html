@@ -42,9 +42,29 @@
                 
     
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 text-center" style="margin-top: 49px;">
                 <!-- Timmer-->
-    
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            Progress
+                        </mat-card-title>
+                        <mat-card-subtitle class="mt10">
+                            Quiz will autometically submitted when timmer will reache <b> 00:00 m/s.</b>
+                        </mat-card-subtitle>
+                       
+                    </mat-card-header>
+                    <h4 class="mt10" style="color: blue;">Remaining time is: <b> {{getFormatedTime()}} </b></h4>
+                    <mat-card-content class="mt20">
+                        <mat-spinner
+                          mode="determinate"
+                          color="warn"
+                          style="margin:auto;"
+                          [value]="(timer/(this.questions.length * 2 * 60))*100"
+                          >
+                        </mat-spinner>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
