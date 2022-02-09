@@ -1,6 +1,6 @@
 <div class="bootstrap-wrapper" *ngIf="!isSubmitted">
-    <div class="container-fluid">
-        <div class="row" *ngIf="questions">
+    <div class="container-fluid" *ngIf="questions">
+        <div class="row" *ngIf="questions[0]">
             <div class="col-md-2">
                 <!-- Instruction-->
                 <mat-card>
@@ -88,7 +88,7 @@
 
 <!--Show the result-->
 <div class="bootstrap-wrapper" *ngIf="isSubmitted">
-    <div class="container-fluid">
+    <div class="container-fluid" *ngIf="questions[0]">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <mat-card class="text-center">
@@ -123,4 +123,22 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- if quiz not available then-->
+<div class="col-md-12" *ngIf="questions.length==0">
+    <mat-card>
+        <mat-card-content>
+            <div class="text-center">
+                <h1 class="red"><b>No questions are available in this quiz !!</b></h1>
+                <br />
+                <img src="../../../assets/no-data.jpg" width="40%" alt="quiz" />
+                <br />
+                
+            </div>
+            <mat-card-actions class="text-center">
+                <button class="ml10 mb20" routerLink="/user-dashboard/0" mat-raised-button color="primary">Go to Home</button>
+             </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
 </div>

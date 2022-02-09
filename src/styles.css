@@ -64,6 +64,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .ml5{
     margin-left: 5px !important;
 }
+.mb100{
+    margin-bottom: 300px !important;
+}
 
 .profile-image{
     width : 15%;
