@@ -21,6 +21,11 @@
        <!-- <mat-icon>login</mat-icon> -->
         {{ loginService.getUser().userName}}
       </a>
+      <a *ngIf="!isLoggedIn"
+       routerLink="aboutUs" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+       <!-- <mat-icon>login</mat-icon> -->
+       About us
+      </a>
     <div class="ml20">
       <a (click)="logout()" 
        *ngIf="isLoggedIn"

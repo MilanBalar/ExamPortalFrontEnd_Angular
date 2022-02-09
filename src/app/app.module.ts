@@ -39,6 +39,7 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartExamComponent } from './pages/user/start-exam/start-exam.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
     UserSidebarComponent,
     LoadQuizComponent,
     InstructionsComponent,
-    StartExamComponent
+    StartExamComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

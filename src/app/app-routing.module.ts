@@ -20,12 +20,14 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
 import { StartExamComponent } from './pages/user/start-exam/start-exam.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 const routes: Routes = [
 
 {path:'',component:HomeComponent},
 {path:'signUp',component:SignupComponent},
-{path:'signIn',component:SigninComponent},  
+{path:'signIn',component:SigninComponent}, 
+{path:'aboutUs',component:AboutUsComponent},  
 {path:'home',component:HomeComponent}, 
 {
    path:'admin-dashboard',
