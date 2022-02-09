@@ -3,7 +3,7 @@
         <div class="row" *ngIf="questions">
             <div class="col-md-2">
                 <!-- Instruction-->
-                <mat-card style="margin-top: 49px;">
+                <mat-card>
                     <mat-card-content>
                         <h2><b><u>Instructions</u></b></h2>
                          <ul>
@@ -16,9 +16,15 @@
             </div>
             <div class="col-md-8">
                 <!-- Question-->
-    <ng-container>
+                <!-- <ng-container>
                     <h1>On going quiz is <b>{{questions[0].tblQuiz.title}}</b></h1>
-                </ng-container>
+                </ng-container> -->
+                <mat-card>
+                    <div class="container text-center">
+                      <img src="../../../assets/add-quiz.jpg" width="25%" alt="view question icon" />
+                      <h1><b>{{questions[0].tblQuiz.title}} Quiz</b></h1>
+                  </div>
+                </mat-card>
                   
                 <mat-card *ngFor="let q of questions;let i=index" class="mt10">
                     <mat-card-content>
@@ -51,7 +57,7 @@
                 
     
             </div>
-            <div class="col-md-2 text-center" style="margin-top: 49px;">
+            <div class="col-md-2 text-center">
                 <!-- Timmer-->
                 <mat-card>
                     <mat-card-header>
