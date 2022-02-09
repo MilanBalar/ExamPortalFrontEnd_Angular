@@ -3,7 +3,16 @@
         <div class="row" *ngIf="questions">
             <div class="col-md-2">
                 <!-- Instruction-->
-                <h1>Instruction</h1>
+                <mat-card style="margin-top: 49px;">
+                    <mat-card-content>
+                        <h2><b><u>Instructions</u></b></h2>
+                         <ul>
+                             <li class="mt10">Do not refresh the page otherwise you will get the new question in this quiz.</li>
+                             <li class="mt10">Do not switch the tabs.</li>
+                             <li class="mt10">Do not minimize the window.</li>
+                         </ul>
+                    </mat-card-content>
+                </mat-card>
             </div>
             <div class="col-md-8">
                 <!-- Question-->
@@ -47,7 +56,7 @@
                 <mat-card>
                     <mat-card-header>
                         <mat-card-title>
-                            Progress
+                            <b><u>Progress</u></b>
                         </mat-card-title>
                         <mat-card-subtitle class="mt10">
                             Quiz will autometically submitted when timmer will reache <b> 00:00 m/s.</b>
@@ -99,8 +108,8 @@
 
                     </mat-card-content>
                      <mat-card-actions>
-                        <button type="submit" mat-raised-button color="primary">Print</button>
-                        <button type="reset" class="ml10 mb20" routerLink="/user-dashboard/0" mat-raised-button>Home</button>
+                        <button type="submit" (click)="printPage()" mat-raised-button color="primary">Print</button>
+                        <button type="reset" class="ml10 mb20" routerLink="/user-dashboard/0" mat-raised-button color="warn">Home</button>
                      </mat-card-actions>
 
                 </mat-card>

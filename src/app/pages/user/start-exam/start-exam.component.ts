@@ -14,6 +14,7 @@ export class StartExamComponent implements OnInit {
   quizId:any;
   questions:any;
   marksGot=0;
+  tempMarks=0;
   currectAnswers=0;
   attempted=0;
   isSubmitted=false;
@@ -78,7 +79,8 @@ export class StartExamComponent implements OnInit {
           if(q.answer == q.givenAnswer){
             this.currectAnswers++;
             let marskSingle=this.questions[0].tblQuiz.maxMarks/this.questions.length;
-            this.marksGot += marskSingle;
+            this.tempMarks += marskSingle;
+            this.marksGot=parseFloat(Number(this.tempMarks).toFixed(2));
           }
           if(q.givenAnswer.trim() != ''){
             this.attempted++;
@@ -105,6 +107,9 @@ export class StartExamComponent implements OnInit {
     let ss=this.timer-(mm*60);
     return `${mm} min : ${ss} sec`;
   }
-  
+  //print page
+  printPage(){
+    window.print();
+  }
 
 }
